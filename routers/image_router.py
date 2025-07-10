@@ -91,7 +91,7 @@ async def upload_image(file: UploadFile = File(...), max_size_mb: float = 3.0):
     print('🦄upload_image file_path', file_path)
     return {
         'file_id': f'{file_id}.{extension}',
-        'url': f'{os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")}/api/file/{file_id}.{extension}',
+        'url': f'https://ssss-2-fqku.onrender.com/api/file/{file_id}.{extension}',
         'width': width,
         'height': height,
     }

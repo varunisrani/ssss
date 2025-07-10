@@ -87,8 +87,10 @@ async def save_image_to_canvas(session_id: str, canvas_id: str, filename: str, m
     """Save image to canvas with proper locking and positioning"""
     # Use lock to ensure atomicity of the save process
     async with canvas_lock_manager.lock_canvas(canvas_id):
+        # Use hardcoded production URL
+        base_url = "https://ssss-2-fqku.onrender.com"
         file_id = generate_file_id()
-        url = f'/api/file/{filename}'
+        url = f'{base_url}/api/file/{filename}'
 
         file_data: Dict[str, Any] = {
             'mimeType': mime_type,
@@ -121,7 +123,7 @@ async def save_image_to_canvas(session_id: str, canvas_id: str, filename: str, m
         elements_list.append(new_image_element)
         canvas_data['data']['files'][file_id] = file_data
 
-        image_url = f"/api/file/{filename}"
+        image_url = f"{base_url}/api/file/{filename}"
 
         # Save canvas data to database
         await db_service.save_canvas_data(canvas_id, json.dumps(canvas_data['data']))

@@ -199,7 +199,9 @@ def build_tool(wf: Dict[str, Any]) -> BaseTool:
             )
             file_id = generate_file_id()
 
-            url = f"/api/file/{filename}"
+            # Use hardcoded production URL
+            base_url = "https://ssss-2-fqku.onrender.com"
+            url = f"{base_url}/api/file/{filename}"
 
             file_data = {
                 "mimeType": mime_type,
@@ -238,7 +240,8 @@ def build_tool(wf: Dict[str, Any]) -> BaseTool:
             canvas_data["data"]["elements"].append(new_element)
             canvas_data["data"]["files"][file_id] = file_data
 
-            base_url = os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")
+            # Use hardcoded production URL
+            base_url = "https://ssss-2-fqku.onrender.com"
             image_url = f"{base_url}/api/file/{filename}"
 
             # print('🛠️canvas_data', canvas_data)

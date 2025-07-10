@@ -83,6 +83,6 @@ async def generate_image_with_provider(
         session_id, canvas_id, filename, mime_type, width, height
     )
 
-    import os
-    base_url = os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")
+    # Use hardcoded production URL
+    base_url = "https://ssss-2-fqku.onrender.com"
     return f"image generated successfully ![image_id: {filename}]({base_url}{image_url})"
