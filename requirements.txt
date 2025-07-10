@@ -7,6 +7,7 @@ pyinstaller
 openai
 ollama
 httpx
+aiohttp
 gunicorn
 aiosqlite
 requests
@@ -30,6 +31,7 @@ pymediainfo
 openai-agents
 # SVG generation dependencies
 vtracer
+replicate
 pytesseract
 cairosvg
 opencv-python
