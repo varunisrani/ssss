@@ -3,7 +3,7 @@ import aiofiles
 from PIL import Image
 from io import BytesIO
 import base64
-from typing import Tuple
+from typing import Tuple, Union
 from nanoid import generate
 from utils.http_client import HttpClient
 from services.config_service import FILES_DIR
@@ -80,7 +80,7 @@ async def get_image_info_and_save(
 # Notification functions moved to tools/image_generation/image_canvas_utils.py
 
 
-async def process_input_image(input_image: str | None) -> str | None:
+async def process_input_image(input_image: Union[str, None]) -> Union[str, None]:
     """
     Process input image and convert to base64 format
 

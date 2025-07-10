@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Union
 from langchain_core.tools import tool, InjectedToolCallId  # type: ignore
 from langchain_core.runnables import RunnableConfig
 from tools.utils.image_generation_core import generate_image_with_provider
@@ -13,7 +13,7 @@ async def generate_image_by_flux_kontext_pro_replicate(
     aspect_ratio: str,
     config: RunnableConfig,
     tool_call_id: Annotated[str, InjectedToolCallId],
-    input_image: str | None = None,
+    input_image: Union[str, None] = None,
 ) -> str:
     ctx = config.get('configurable', {})
     canvas_id = ctx.get('canvas_id', '')

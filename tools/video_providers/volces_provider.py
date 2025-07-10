@@ -1,7 +1,7 @@
 import json
 import traceback
 import asyncio
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List, Union
 
 from .video_base_provider import VideoProviderBase
 from utils.http_client import HttpClient
@@ -36,12 +36,12 @@ class VolcesVideoProvider(VideoProviderBase, provider_name="volces"):
     def _build_request_payload(
         self,
         prompt: str,
-        model: str | None = None,
+        model: Union[str, None] = None,
         resolution: str = "480p",
         duration: int = 5,
         aspect_ratio: str = "16:9",
         camera_fixed: bool = True,
-        input_image_data: Optional[str] | None = None,
+        input_image_data: Optional[str] = None,
         **kwargs: Any
     ) -> Dict[str, Any]:
         """Build request payload for Volces API"""

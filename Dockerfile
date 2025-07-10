@@ -36,7 +36,7 @@ RUN mkdir -p /app/react/dist && \
 EXPOSE 10000
 
 # Create startup script to handle dynamic PORT
-RUN echo '#!/bin/bash\nuvicorn main:app --host 0.0.0.0 --port ${PORT:-10000}' > /app/start.sh && chmod +x /app/start.sh
+RUN echo '#!/bin/bash\nuvicorn main:socket_app --host 0.0.0.0 --port ${PORT:-10000}' > /app/start.sh && chmod +x /app/start.sh
 
 # Start the application with uvicorn for production
 CMD ["/app/start.sh"]

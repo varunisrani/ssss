@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Union
 from pydantic import BaseModel, Field
 from langchain_core.tools import tool, InjectedToolCallId  # type: ignore
 from langchain_core.runnables import RunnableConfig
@@ -11,7 +11,7 @@ class GenerateImageBySeadream3InputSchema(BaseModel):
     aspect_ratio: str = Field(
         description="Required. Aspect ratio of the image, only these values are allowed: 1:1, 16:9, 4:3, 3:4, 9:16. Choose the best fitting aspect ratio according to the prompt. Best ratio for posters is 3:4"
     )
-    input_image: str | None = Field(
+    input_image: Union[str, None] = Field(
         default=None,
         description="Optional; Image to use as reference. Pass an image_id here, e.g. 'im_jurheut7.png'. Best for image editing cases like: Editing specific parts of the image, Removing specific objects, Maintaining visual elements across scenes (character/object consistency), Generating new content in the style of the reference (style transfer), etc."
     )
@@ -26,7 +26,7 @@ async def generate_image_by_seedream_3_replicate(
     aspect_ratio: str,
     config: RunnableConfig,
     tool_call_id: Annotated[str, InjectedToolCallId],
-    input_image: str | None = None,
+    input_image: Union[str, None] = None,
 ) -> str:
     """
     Generate an image using Seedream 3 model via the Replicate provider framework

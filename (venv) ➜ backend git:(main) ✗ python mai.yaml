@@ -1,0 +1,595 @@
+(venv) ➜  backend git:(main) ✗ python main.py
+2025-07-10 21:30:57,711 - INFO - ✅ VTracer is available and functional
+2025-07-10 21:30:57,711 - INFO - 🎉 Full parallel SVG features are available (VTracer + text removal)
+2025-07-10 21:30:57,713 - INFO - [SUCCESS] OpenRouter API key found - Google Gemini-2.5-flash enabled for ultra-fast SVG processing!
+INFO:     Started server process [92730]
+INFO:     Waiting for application startup.
+2025-07-10 21:30:58,260 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/comfy_workflows?select=%2A&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:57988 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56488 - "WebSocket /socket.io/?EIO=4&transport=websocket" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56490 - "WebSocket /socket.io/?EIO=4&transport=websocket" [accepted]
+INFO:     connection open
+🌟Starting server, UI_DIST_DIR: ../react/dist
+Using API key from environment for replicate
+Using API key from environment for openai
+Broadcasted init_done to all clients
+Client -cbmQhJkTbecSruzAAAB connected
+New connection added: -cbmQhJkTbecSruzAAAB, total connections: 1
+Client QnAqd_uPN-Yz-WpLAAAD connected
+New connection added: QnAqd_uPN-Yz-WpLAAAD, total connections: 2
+INFO:     127.0.0.1:56492 - "GET /api/list_models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56496 - "GET /api/list_tools HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56498 - "WebSocket /socket.io/?EIO=4&transport=websocket" [accepted]
+INFO:     connection open
+2025-07-10 21:31:00,882 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.hrIYs6v-vjcCAG0797vxE "HTTP/2 200 OK"
+Client rY3hlKh-b-F8LnOUAAAF connected
+New connection added: rY3hlKh-b-F8LnOUAAAF, total connections: 3
+INFO:     127.0.0.1:56500 - "POST /api/canvas/hrIYs6v-vjcCAG0797vxE/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56502 - "WebSocket /socket.io/?EIO=4&transport=websocket" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:56504 - "WebSocket /socket.io/?EIO=4&transport=websocket" [accepted]
+INFO:     connection open
+2025-07-10 21:31:12,128 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?select=%2A&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+Client mV381VLVIZJT9hunAAAH connected
+New connection added: mV381VLVIZJT9hunAAAH, total connections: 4
+Client EEccMjiMKKwSP6RcAAAJ connected
+New connection added: EEccMjiMKKwSP6RcAAAJ, total connections: 5
+
+🗄️  SUPABASE [21:31:11.831] LIST
+   📋 Table: canvases
+   📊 limit: 50
+   📊 offset: 0
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:12.132] LIST CANVASES - ✅ SUCCESS
+   📈 Records: 5
+   📋 Sample: {
+  "id": "hrIYs6v-vjcCAG0797vxE",
+  "name": "Untitled",
+  "data": {
+    "files": {
+      "im_1Dgu32Yk": {
+        "id": "im_1Dgu32Yk",
+        "created": 1752163001251,
+        "dataURL": "/api/file/KuXcsZxg4s.png",
+        "mimeType": "image/png"
+      }
+    },
+    "appState": {
+      "name": "Untitled-2025-07-10-2125",
+      "zoom": {
+        "value": 0.501814
+      },
+      "stats": {
+        "open": false,
+        "panels": 3
+      },
+      "theme": "dark",
+      "toast": null,
+      "width": 935.3515625,
+      "height": 766.625,
+      "penMode": false,
+      "scrollX": 364.7321789686762,
+      "scrollY": 480.55212510358365,
+      "gridSize": 20,
+      "gridStep": 5,
+      "openMenu": null,
+      "isLoading": false,
+      "offsetTop": 45.375,
+      "openPopup": null,
+      "snapLines": [],
+      "activeTool": {
+        "type": "selection",
+        "locked": false,
+        "customType": null,
+        "lastActiveTool": null
+      },
+      "fileHandle": null,
+      "followedBy": {},
+      "isCropping": false,
+      "isResizing": false,
+      "isRotating": false,
+      "newElement": null,
+      "offsetLeft": 0,
+      "openDialog": null,
+      "contextMenu": null,
+      "exportScale": 2,
+      "openSidebar": null,
+      "pasteDialog": {
+        "data": null,
+        "shown": false
+      },
+      "penDetected": false,
+      "cursorButton": "up",
+      "editingFrame": null,
+      "errorMessage": null,
+      "multiElement": null,
+      "userToFollow": null,
+      "searchMatches": [],
+      "editingGroupId": null,
+      "frameRendering": {
+        "clip": true,
+        "name": true,
+        "enabled": true,
+        "outline": true
+      },
+      "zenModeEnabled": false,
+      "gridModeEnabled": false,
+      "resizingElement": null,
+      "scrolledOutside": false,
+      "viewModeEnabled": false,
+      "activeEmbeddable": null,
+      "currentChartType": "bar",
+      "exportBackground": true,
+      "exportEmbedScene": false,
+      "frameToHighlight": null,
+      "isBindingEnabled": true,
+      "originSnapOffset": null,
+      "selectedGroupIds": {},
+      "selectionElement": null,
+      "croppingElementId": null,
+      "hoveredElementIds": {},
+      "showWelcomeScreen": true,
+      "startBoundElement": null,
+      "suggestedBindings": [],
+      "currentItemOpacity": 100,
+      "editingTextElement": null,
+      "exportWithDarkMode": false,
+      "selectedElementIds": {
+        "im_1Dgu32Yk": true
+      },
+      "showHyperlinkPopup": false,
+      "currentItemFontSize": 20,
+      "elementsToHighlight": null,
+      "lastPointerDownWith": "mouse",
+      "viewBackgroundColor": "#ffffff",
+      "currentItemArrowType": "round",
+      "currentItemFillStyle": "solid",
+      "currentItemRoughness": 1,
+      "currentItemRoundness": "round",
+      "currentItemTextAlign": "left",
+      "editingLinearElement": null,
+      "currentItemFontFamily": 5,
+      "pendingImageElementId": null,
+      "selectedLinearElement": null,
+      "shouldCacheIgnoreZoom": false,
+      "currentItemStrokeColor": "#1e1e1e",
+      "currentItemStrokeStyle": "solid",
+      "currentItemStrokeWidth": 2,
+      "objectsSnapModeEnabled": false,
+      "currentItemEndArrowhead": "arrow",
+      "currentHoveredFontFamily": null,
+      "currentItemStartArrowhead": null,
+      "currentItemBackgroundColor": "transparent",
+      "previousSelectedElementIds": {
+        "im_1Dgu32Yk": true
+      },
+      "defaultSidebarDockedPreference": false,
+      "selectedElementsAreBeingDragged": false
+    },
+    "elements": [
+      {
+        "x": 285.8146270331239,
+        "y": -366.31164634705283,
+        "id": "im_1Dgu32Yk",
+        "crop": null,
+        "link": null,
+        "seed": 339563,
+        "type": "image",
+        "angle": 0,
+        "index": "a4",
+        "scale": [
+          1,
+          1
+        ],
+        "width": 736,
+        "fileId": "im_1Dgu32Yk",
+        "height": 1312,
+        "locked": false,
+        "status": "saved",
+        "frameId": null,
+        "opacity": 100,
+        "updated": 1752163020695,
+        "version": 52,
+        "groupIds": [],
+        "fillStyle": "solid",
+        "isDeleted": false,
+        "roughness": 0,
+        "roundness": null,
+        "strokeColor": "#000000",
+        "strokeStyle": "solid",
+        "strokeWidth": 1,
+        "versionNonce": 27186041,
+        "boundElements": null,
+        "backgroundColor": "transparent"
+      }
+    ]
+  },
+  "description": "",
+  "thumbnail": "/api/file/KuXcsZxg4s.png",
+  "created_at": "2025-07-10T15:55:47.531417+00:00",
+  "updated_at": "2025-07-10T16:01:00.72862+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56507 - "GET /api/canvas/list HTTP/1.1" 200 OK
+🦄get_file file_path ./user_data/files/KuXcsZxg4s.png
+INFO:     127.0.0.1:56510 - "GET /api/file/KuXcsZxg4s.png HTTP/1.1" 200 OK
+2025-07-10 21:31:21,171 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases "HTTP/2 201 Created"
+
+🗄️  SUPABASE [21:31:21.010] CREATE
+   📋 Table: canvases
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   📊 name: Untitled
+   📊 description: 
+   📊 thumbnail: 
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:21.177] CREATE CANVAS - ✅ SUCCESS
+   📋 Result: {
+  "id": "RgWpTput8I0NUL4g-5QW-",
+  "name": "Untitled",
+  "data": {},
+  "description": "",
+  "thumbnail": "",
+  "created_at": "2025-07-10T16:01:21.23891+00:00",
+  "updated_at": "2025-07-10T16:01:21.23891+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56533 - "POST /api/canvas/create HTTP/1.1" 200 OK
+2025-07-10 21:31:21,257 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_sessions "HTTP/2 201 Created"
+2025-07-10 21:31:21,325 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:21,619 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?select=%2A&id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+2025-07-10 21:31:21,694 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_sessions?select=%2A&canvas_id=eq.RgWpTput8I0NUL4g-5QW-&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+👇 chat_service got tool_list [{'provider': 'replicate', 'id': 'generate_image_by_ideogram_v3_turbo_replicate', 'display_name': 'Ideogram V3 Turbo', 'type': 'image'}, {'provider': 'replicate', 'id': 'edit_image_by_flux_kontext_pro_replicate', 'display_name': 'Flux Kontext Pro (Edit)', 'type': 'image_editing'}]
+
+🗄️  SUPABASE [21:31:21.179] CREATE
+   📋 Table: chat_sessions
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   📊 title: create coming soon poster for my shop harekrishna mall
+
+
+   📊 model: gpt-4o-mini
+   📊 provider: openai
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:21.257] CREATE CHAT SESSION - ✅ SUCCESS
+   📋 Result: {
+  "id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "canvas_id": "RgWpTput8I0NUL4g-5QW-",
+  "title": "create coming soon poster for my shop harekrishna mall\n\n",
+  "model": "gpt-4o-mini",
+  "provider": "openai",
+  "created_at": "2025-07-10T16:01:21.321449+00:00",
+  "updated_at": "2025-07-10T16:01:21.321449+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:31:21.257] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: user
+   📊 message_preview: {"role": "user", "content": "create coming soon poster for my shop harekrishna mall\n\n"}
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:21.329] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 20,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "user",
+  "message": "{\"role\": \"user\", \"content\": \"create coming soon poster for my shop harekrishna mall\\n\\n\"}",
+  "created_at": "2025-07-10T16:01:21.389563+00:00",
+  "updated_at": "2025-07-10T16:01:21.389563+00:00"
+}
+   ──────────────────────────────────────────────────
+
+📸 图像工具: [{'provider': 'replicate', 'id': 'generate_image_by_ideogram_v3_turbo_replicate', 'display_name': 'Ideogram V3 Turbo', 'type': 'image'}]
+🎬 视频工具: []
+👇agent_names ['planner', 'image_video_creator']
+👇last_agent None
+
+🗄️  SUPABASE [21:31:21.558] GET
+   📋 Table: canvases
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:21.620] GET CANVAS - ✅ SUCCESS
+   📋 Result: {
+  "id": "RgWpTput8I0NUL4g-5QW-",
+  "name": "Untitled",
+  "data": {},
+  "description": "",
+  "thumbnail": "",
+  "created_at": "2025-07-10T16:01:21.23891+00:00",
+  "updated_at": "2025-07-10T16:01:21.23891+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56536 - "GET /api/canvas/RgWpTput8I0NUL4g-5QW- HTTP/1.1" 200 OK
+2025-07-10 21:31:21,758 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?select=%2A&id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+2025-07-10 21:31:21,827 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_sessions?select=%2A&canvas_id=eq.RgWpTput8I0NUL4g-5QW-&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+
+🗄️  SUPABASE [21:31:21.701] GET
+   📋 Table: canvases
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:21.759] GET CANVAS - ✅ SUCCESS
+   📋 Result: {
+  "id": "RgWpTput8I0NUL4g-5QW-",
+  "name": "Untitled",
+  "data": {},
+  "description": "",
+  "thumbnail": "",
+  "created_at": "2025-07-10T16:01:21.23891+00:00",
+  "updated_at": "2025-07-10T16:01:21.23891+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56542 - "GET /api/canvas/RgWpTput8I0NUL4g-5QW- HTTP/1.1" 200 OK
+2025-07-10 21:31:22,044 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages?select=%2A&session_id=eq.i0fugsJ6f5qNaXEl6Fi4A&order=created_at.asc&offset=0&limit=100 "HTTP/2 200 OK"
+
+🗄️  SUPABASE [21:31:21.976] GET
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 limit: 100
+   📊 offset: 0
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:22.066] GET CHAT MESSAGES - ✅ SUCCESS
+   📈 Records: 1
+   📋 Sample: {
+  "id": 20,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "user",
+  "message": "{\"role\": \"user\", \"content\": \"create coming soon poster for my shop harekrishna mall\\n\\n\"}",
+  "created_at": "2025-07-10T16:01:21.389563+00:00",
+  "updated_at": "2025-07-10T16:01:21.389563+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56545 - "GET /api/chat_session/i0fugsJ6f5qNaXEl6Fi4A HTTP/1.1" 200 OK
+2025-07-10 21:31:22,729 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:31:27,098 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:31:27,278 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:27,333 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:27,383 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:27,465 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:28,647 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:31:34,690 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:46,475 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:31:48,352 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:31:57,716 - INFO - HTTP Request: POST https://api.replicate.com/v1/models/ideogram-ai/ideogram-v3-turbo/predictions "HTTP/1.1 201 Created"
+2025-07-10 21:31:58,330 - INFO - HTTP Request: GET https://replicate.delivery/xezq/aeQ7elwANDuRG0zlKGVCKE3CHYpGChjSUEfRXMnlo7QrvyeTB/tmpz3mlir3e.png "HTTP/1.1 200 OK"
+2025-07-10 21:31:59,665 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?select=%2A&id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+2025-07-10 21:32:00,100 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_sessions?select=%2A&canvas_id=eq.RgWpTput8I0NUL4g-5QW-&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+2025-07-10 21:32:00,226 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?select=%2A&id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+2025-07-10 21:32:00,337 - INFO - HTTP Request: GET https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_sessions?select=%2A&canvas_id=eq.RgWpTput8I0NUL4g-5QW-&order=updated_at.desc&offset=0&limit=50 "HTTP/2 200 OK"
+2025-07-10 21:32:00,391 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+😘tool_call event [{'name': 'write_plan', 'args': {}, 'id': 'call_w9WLfKu89owEET0qtWkqMoHi', 'type': 'tool_call'}]
+write_plan_tool
+👇toolcall res oai_message {'role': 'tool', 'name': 'write_plan', 'tool_call_id': 'call_w9WLfKu89owEET0qtWkqMoHi', 'content': '<hide_in_user_ui> Plan made. Now you can start executing the plan, or handoff the task to the suitable agent who specializes in the steps of the plan.</hide_from_user>'}
+😘tool_call event [{'name': 'transfer_to_image_video_creator', 'args': {}, 'id': 'call_8vAxisihaINuHqzHw6vjWOmy', 'type': 'tool_call'}]
+
+🗄️  SUPABASE [21:31:27.145] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: assistant
+   📊 message_preview: {"role": "assistant", "name": "planner", "tool_calls": [{"type": "function", "id": "call_w9WLfKu89ow...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:27.280] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 21,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "assistant",
+  "message": "{\"role\": \"assistant\", \"name\": \"planner\", \"tool_calls\": [{\"type\": \"function\", \"id\": \"call_w9WLfKu89owEET0qtWkqMoHi\", \"function\": {\"name\": \"write_plan\", \"arguments\": \"{\\\"steps\\\": [{\\\"title\\\": \\\"Design the poster layout\\\", \\\"description\\\": \\\"Create a visually appealing layout for the 'Coming Soon' poster for Harekrishna Mall.\\\"}, {\\\"title\\\": \\\"Select color scheme and fonts\\\", \\\"description\\\": \\\"Choose a color scheme and fonts that reflect the brand identity of Harekrishna Mall.\\\"}, {\\\"title\\\": \\\"Add text and graphics\\\", \\\"description\\\": \\\"Incorporate the text 'Coming Soon' along with any relevant graphics or images that represent the mall.\\\"}, {\\\"title\\\": \\\"Finalize the design\\\", \\\"description\\\": \\\"Review and finalize the poster design for clarity and visual impact.\\\"}]}\"}}], \"content\": \"\"}",
+  "created_at": "2025-07-10T16:01:27.350743+00:00",
+  "updated_at": "2025-07-10T16:01:27.350743+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:31:27.281] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: tool
+   📊 message_preview: {"role": "tool", "name": "write_plan", "tool_call_id": "call_w9WLfKu89owEET0qtWkqMoHi", "content": "...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:27.333] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 22,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "tool",
+  "message": "{\"role\": \"tool\", \"name\": \"write_plan\", \"tool_call_id\": \"call_w9WLfKu89owEET0qtWkqMoHi\", \"content\": \"<hide_in_user_ui> Plan made. Now you can start executing the plan, or handoff the task to the suitable agent who specializes in the steps of the plan.</hide_from_user>\"}",
+  "created_at": "2025-07-10T16:01:27.4071+00:00",
+  "updated_at": "2025-07-10T16:01:27.4071+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:31:27.333] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: assistant
+   📊 message_preview: {"role": "assistant", "name": "planner", "tool_calls": [{"type": "function", "id": "call_8vAxisihaIN...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:27.385] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 23,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "assistant",
+  "message": "{\"role\": \"assistant\", \"name\": \"planner\", \"tool_calls\": [{\"type\": \"function\", \"id\": \"call_8vAxisihaINuHqzHw6vjWOmy\", \"function\": {\"name\": \"transfer_to_image_video_creator\", \"arguments\": \"{}\"}}], \"content\": \"\"}",
+  "created_at": "2025-07-10T16:01:27.457129+00:00",
+  "updated_at": "2025-07-10T16:01:27.457129+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:31:27.385] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: tool
+   📊 message_preview: {"role": "tool", "name": "transfer_to_image_video_creator", "tool_call_id": "call_8vAxisihaINuHqzHw6...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:27.466] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 24,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "tool",
+  "message": "{\"role\": \"tool\", \"name\": \"transfer_to_image_video_creator\", \"tool_call_id\": \"call_8vAxisihaINuHqzHw6vjWOmy\", \"content\": \"<hide_in_user_ui> Successfully transferred to image_video_creator\"}",
+  "created_at": "2025-07-10T16:01:27.535103+00:00",
+  "updated_at": "2025-07-10T16:01:27.535103+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:31:34.171] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: assistant
+   📊 message_preview: {"role": "assistant", "name": "image_video_creator", "content": "Design Proposal for \u201cHAREKRISH...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:34.695] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 25,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "assistant",
+  "message": "{\"role\": \"assistant\", \"name\": \"image_video_creator\", \"content\": \"Design Proposal for \\u201cHAREKRISHNA MALL \\u2013 Coming Soon\\u201d Poster\\n\\u2022 Recommended resolution: 1080 \\u00d7 1920 px (portrait) \\u2013 ideal for social media and print distribution.\\n\\n\\u2022 Style & Mood\\n\\u2013 Bright and inviting color palette featuring warm tones (orange, yellow, and green) to evoke a sense of excitement and anticipation.\\n\\u2013 Modern and clean design with a touch of traditional elements to reflect the cultural essence of Harekrishna Mall.\\n\\u2013 Atmosphere: vibrant, welcoming, and community-oriented.\\n\\n\\u2022 Key Visual Element\\n\\u2013 Bold, large text stating \\u201cComing Soon\\u201d at the center, using a modern sans-serif font for clarity.\\n\\u2013 Background featuring a subtle pattern or illustration that represents shopping, community, or cultural motifs.\\n\\u2013 Incorporate the Harekrishna Mall logo at the bottom for brand recognition.\\n\\n\\u2022 Composition & Layout\\n\\u2013 Centered text with ample negative space around it to ensure readability.\\n\\u2013 Logo placed at the bottom center, maintaining balance in the design.\\n\\u2013 Optional decorative elements like shopping bags or festive motifs around the edges to enhance the theme.\\n\\n\\u2022 Color Palette\\n#FFA500 (orange), #FFD700 (gold), #32CD32 (lime green), #FFFFFF (white) for text and accents.\\n\\n\\u2022 Typography\\n\\u2013 Main text: bold sans-serif font for \\u201cComing Soon\\u201d.\\n\\u2013 Secondary text (if any): clean sans-serif font for additional information.\\n\\nNow, I will generate the image based on this design strategy.\"}",
+  "created_at": "2025-07-10T16:01:34.674581+00:00",
+  "updated_at": "2025-07-10T16:01:34.674581+00:00"
+}
+   ──────────────────────────────────────────────────
+
+👇 chat_service got tool_list [{'provider': 'replicate', 'id': 'generate_image_by_ideogram_v3_turbo_replicate', 'display_name': 'Ideogram V3 Turbo', 'type': 'image'}, {'provider': 'replicate', 'id': 'edit_image_by_flux_kontext_pro_replicate', 'display_name': 'Flux Kontext Pro (Edit)', 'type': 'image_editing'}]
+
+🗄️  SUPABASE [21:31:46.165] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: user
+   📊 message_preview: {"role": "user", "content": "do it "}
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:46.477] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 26,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "user",
+  "message": "{\"role\": \"user\", \"content\": \"do it \"}",
+  "created_at": "2025-07-10T16:01:46.544563+00:00",
+  "updated_at": "2025-07-10T16:01:46.544563+00:00"
+}
+   ──────────────────────────────────────────────────
+
+📸 图像工具: [{'provider': 'replicate', 'id': 'generate_image_by_ideogram_v3_turbo_replicate', 'display_name': 'Ideogram V3 Turbo', 'type': 'image'}]
+🎬 视频工具: []
+👇agent_names ['planner', 'image_video_creator']
+👇last_agent image_video_creator
+😘tool_call event [{'name': 'generate_image_by_ideogram_v3_turbo_replicate', 'args': {}, 'id': 'call_pVQ2kf3B0PUBA722H8Qgtfd2', 'type': 'tool_call'}]
+🦄 Replicate API request: https://api.replicate.com/v1/models/ideogram-ai/ideogram-v3-turbo/predictions, model: A vibrant and inviting 'Coming Soon' poster for Harekrishna Mall. The poster features a bright color palette with warm tones like orange, yellow, and green. The text 'Coming Soon' is bold and large at the center in a modern sans-serif font. The background includes a subtle pattern or illustration representing shopping and cultural motifs. The Harekrishna Mall logo is placed at the bottom center. The overall atmosphere is vibrant, welcoming, and community-oriented, with optional decorative elements like shopping bags or festive motifs around the edges.
+🦄 Replicate API response {'id': 'frkchfv4esrme0cqym99bhbcdm', 'model': 'ideogram-ai/ideogram-v3-turbo', 'version': 'hidden', 'input': {'aspect_ratio': '9:16', 'magic_prompt_option': 'Auto', 'prompt': "A vibrant and inviting 'Coming Soon' poster for Harekrishna Mall. The poster features a bright color palette with warm tones like orange, yellow, and green. The text 'Coming Soon' is bold and large at the center in a modern sans-serif font. The background includes a subtle pattern or illustration representing shopping and cultural motifs. The Harekrishna Mall logo is placed at the bottom center. The overall atmosphere is vibrant, welcoming, and community-oriented, with optional decorative elements like shopping bags or festive motifs around the edges.", 'quality': 'low', 'resolution': 'None', 'style_type': 'None'}, 'logs': '', 'output': 'https://replicate.delivery/xezq/aeQ7elwANDuRG0zlKGVCKE3CHYpGChjSUEfRXMnlo7QrvyeTB/tmpz3mlir3e.png', 'data_removed': False, 'error': None, 'status': 'processing', 'created_at': '2025-07-10T16:01:52.758Z', 'urls': {'cancel': 'https://api.replicate.com/v1/predictions/frkchfv4esrme0cqym99bhbcdm/cancel', 'get': 'https://api.replicate.com/v1/predictions/frkchfv4esrme0cqym99bhbcdm', 'stream': 'https://stream.replicate.com/v1/files/bcwr-4f3naawyu3ike45fju5psm2dhxmkrkdrwfssc3q6savx2phatbqq', 'web': 'https://replicate.com/p/frkchfv4esrme0cqym99bhbcdm'}}
+🦄 image generation image_id vW7-gfuG7A
+
+🗄️  SUPABASE [21:31:59.357] GET
+   📋 Table: canvases
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:31:59.669] GET CANVAS - ✅ SUCCESS
+   📋 Result: {
+  "id": "RgWpTput8I0NUL4g-5QW-",
+  "name": "Untitled",
+  "data": {},
+  "description": "",
+  "thumbnail": "",
+  "created_at": "2025-07-10T16:01:21.23891+00:00",
+  "updated_at": "2025-07-10T16:01:21.23891+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:32:00.104] GET
+   📋 Table: canvases
+   📊 canvas_id: RgWpTput8I0NUL4g-5QW-
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:32:00.227] GET CANVAS - ✅ SUCCESS
+   📋 Result: {
+  "id": "RgWpTput8I0NUL4g-5QW-",
+  "name": "Untitled",
+  "data": {},
+  "description": "",
+  "thumbnail": "",
+  "created_at": "2025-07-10T16:01:21.23891+00:00",
+  "updated_at": "2025-07-10T16:01:21.23891+00:00"
+}
+   ──────────────────────────────────────────────────
+
+👇toolcall res oai_message {'role': 'tool', 'name': 'generate_image_by_ideogram_v3_turbo_replicate', 'tool_call_id': 'call_pVQ2kf3B0PUBA722H8Qgtfd2', 'content': 'image generated successfully ![image_id: vW7-gfuG7A.png](http://localhost:57988/api/file/vW7-gfuG7A.png)'}
+🦄get_file file_path ./user_data/files/vW7-gfuG7A.png
+INFO:     127.0.0.1:56707 - "GET /api/file/vW7-gfuG7A.png HTTP/1.1" 200 OK
+2025-07-10 21:32:02,026 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+🦄get_file file_path ./user_data/files/vW7-gfuG7A.png
+INFO:     127.0.0.1:56711 - "GET /api/file/vW7-gfuG7A.png HTTP/1.1" 200 OK
+2025-07-10 21:32:02,842 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:32:03,169 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:32:08,582 - INFO - HTTP Request: POST https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/chat_messages "HTTP/2 201 Created"
+2025-07-10 21:32:08,734 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+
+🗄️  SUPABASE [21:32:02.667] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: assistant
+   📊 message_preview: {"role": "assistant", "name": "image_video_creator", "tool_calls": [{"type": "function", "id": "call...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:32:02.866] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 27,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "assistant",
+  "message": "{\"role\": \"assistant\", \"name\": \"image_video_creator\", \"tool_calls\": [{\"type\": \"function\", \"id\": \"call_pVQ2kf3B0PUBA722H8Qgtfd2\", \"function\": {\"name\": \"generate_image_by_ideogram_v3_turbo_replicate\", \"arguments\": \"{\\\"prompt\\\": \\\"A vibrant and inviting 'Coming Soon' poster for Harekrishna Mall. The poster features a bright color palette with warm tones like orange, yellow, and green. The text 'Coming Soon' is bold and large at the center in a modern sans-serif font. The background includes a subtle pattern or illustration representing shopping and cultural motifs. The Harekrishna Mall logo is placed at the bottom center. The overall atmosphere is vibrant, welcoming, and community-oriented, with optional decorative elements like shopping bags or festive motifs around the edges.\\\", \\\"aspect_ratio\\\": \\\"9:16\\\"}\"}}], \"content\": \"\"}",
+  "created_at": "2025-07-10T16:02:02.803936+00:00",
+  "updated_at": "2025-07-10T16:02:02.803936+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:32:02.869] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: tool
+   📊 message_preview: {"role": "tool", "name": "generate_image_by_ideogram_v3_turbo_replicate", "tool_call_id": "call_pVQ2...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:32:08.487] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 28,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "tool",
+  "message": "{\"role\": \"tool\", \"name\": \"generate_image_by_ideogram_v3_turbo_replicate\", \"tool_call_id\": \"call_pVQ2kf3B0PUBA722H8Qgtfd2\", \"content\": \"image generated successfully ![image_id: vW7-gfuG7A.png](http://localhost:57988/api/file/vW7-gfuG7A.png)\"}",
+  "created_at": "2025-07-10T16:02:03.077561+00:00",
+  "updated_at": "2025-07-10T16:02:03.077561+00:00"
+}
+   ──────────────────────────────────────────────────
+
+
+🗄️  SUPABASE [21:32:08.488] CREATE
+   📋 Table: chat_messages
+   📊 session_id: i0fugsJ6f5qNaXEl6Fi4A
+   📊 role: assistant
+   📊 message_preview: {"role": "assistant", "name": "image_video_creator", "content": "The \"Coming Soon\" poster for Hare...
+   ──────────────────────────────────────────────────
+🗄️  SUPABASE [21:32:08.585] CREATE CHAT MESSAGE - ✅ SUCCESS
+   📋 Result: {
+  "id": 29,
+  "session_id": "i0fugsJ6f5qNaXEl6Fi4A",
+  "role": "assistant",
+  "message": "{\"role\": \"assistant\", \"name\": \"image_video_creator\", \"content\": \"The \\\"Coming Soon\\\" poster for Harekrishna Mall has been successfully created! You can view and download the image using the link below:\\n\\n![Harekrishna Mall Coming Soon Poster](http://localhost:57988/api/file/vW7-gfuG7A.png)\\n\\nIf you need any adjustments or additional designs, feel free to let me know!\"}",
+  "created_at": "2025-07-10T16:02:08.649424+00:00",
+  "updated_at": "2025-07-10T16:02:08.649424+00:00"
+}
+   ──────────────────────────────────────────────────
+
+INFO:     127.0.0.1:56720 - "POST /api/canvas/RgWpTput8I0NUL4g-5QW-/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56736 - "GET /api/list_models HTTP/1.1" 200 OK
+2025-07-10 21:32:09,176 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+INFO:     127.0.0.1:56737 - "POST /api/canvas/RgWpTput8I0NUL4g-5QW-/save HTTP/1.1" 200 OK
+2025-07-10 21:32:09,258 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+INFO:     127.0.0.1:56738 - "POST /api/canvas/RgWpTput8I0NUL4g-5QW-/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56742 - "GET /api/list_tools HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56643 - "POST /api/chat HTTP/1.1" 200 OK
+2025-07-10 21:32:10,594 - INFO - HTTP Request: PATCH https://coykumwaqdjbbupvmpin.supabase.co/rest/v1/canvases?id=eq.RgWpTput8I0NUL4g-5QW- "HTTP/2 200 OK"
+INFO:     127.0.0.1:56744 - "POST /api/canvas/RgWpTput8I0NUL4g-5QW-/save HTTP/1.1" 200 OK
