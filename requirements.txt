@@ -35,7 +35,7 @@ vtracer
 replicate
 pytesseract
 cairosvg
-opencv-python
+opencv-python-headless
 # Flask dependencies for InfoUI-style server
 flask
 flask-cors

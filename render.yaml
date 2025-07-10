@@ -1,16 +1,13 @@
 services:
   - type: web
     name: jaaz-backend
-    env: python
+    env: docker
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
       - key: DATABASE_URL
         value: sqlite:///./user_data/localmanus.db
     disk:
       name: jaaz-data
-      mountPath: /opt/render/project/src/user_data
+      mountPath: /app/user_data
       sizeGB: 1
