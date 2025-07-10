@@ -1,6 +1,7 @@
 import os
 import sys
 import io
+from datetime import datetime
 # Ensure stdout and stderr use utf-8 encoding to prevent emoji logs from crashing python server
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
@@ -62,6 +63,16 @@ app.include_router(chat_router.router)
 app.include_router(svg_router.router)
 app.include_router(image_to_svg_router.router)
 
+# Add health check endpoint
+@app.get("/health")
+async def health_check():
+    return {
+        "status": "healthy",
+        "service": "Jaaz AI Design Agent Backend",
+        "version": "1.0.0",
+        "timestamp": datetime.now().isoformat()
+    }
+
 # Mount the React build directory
 react_build_dir = os.environ.get('UI_DIST_DIR', os.path.join(
     os.path.dirname(root_dir), "react", "dist"))
@@ -85,11 +96,25 @@ if os.path.exists(static_site):
 
 @app.get("/")
 async def serve_react_app():
-    response = FileResponse(os.path.join(react_build_dir, "index.html"))
-    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "0"
-    return response
+    index_path = os.path.join(react_build_dir, "index.html")
+    
+    # Check if frontend files exist, otherwise return API status
+    if os.path.exists(index_path):
+        response = FileResponse(index_path)
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+        return response
+    else:
+        # Fallback: Return API status when frontend is not available
+        return {
+            "message": "Jaaz AI Design Agent Backend API",
+            "status": "running",
+            "version": "1.0.0",
+            "frontend": "not_available",
+            "api_docs": "/docs",
+            "health": "/health"
+        }
 
 
 socket_app = socketio.ASGIApp(sio, other_asgi_app=app, socketio_path='/socket.io')

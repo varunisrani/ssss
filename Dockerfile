@@ -28,6 +28,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Create directory for React build and set a fallback message
+RUN mkdir -p /app/react/dist && \
+    echo '<!DOCTYPE html><html><head><title>Backend API</title></head><body><h1>Jaaz AI Backend API</h1><p>Frontend not available</p><a href="/docs">API Documentation</a></body></html>' > /app/react/dist/index.html
+
 # Expose port for Render (default 10000)
 EXPOSE 10000
 
