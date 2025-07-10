@@ -1,0 +1,83 @@
+[wraked]
+url = "https://www.wraked.app/api/v1/"
+api_key = ""
+max_tokens = 8192
+
+[comfyui]
+url = "http://127.0.0.1:8188"
+api_key = ""
+
+[ollama]
+url = "http://localhost:11434"
+api_key = ""
+max_tokens = 8192
+
+[openai]
+url = "https://api.openai.com/v1/"
+api_key = ""
+max_tokens = 8192
+
+[replicate]
+url = "https://api.replicate.com/v1/"
+api_key = ""
+max_tokens = 8192
+
+[volces]
+url = "https://open.volcengineapi.com/"
+api_key = ""
+max_tokens = 8192
+
+[comfyui.models]
+
+[ollama.models]
+
+[wraked.models.gpt-4o]
+type = "text"
+
+[wraked.models.gpt-4o-mini]
+type = "text"
+
+[wraked.models."deepseek/deepseek-chat-v3-0324"]
+type = "text"
+
+[wraked.models."anthropic/claude-sonnet-4"]
+type = "text"
+
+[wraked.models."anthropic/claude-3.7-sonnet"]
+type = "text"
+
+[wraked.models."openai/gpt-image-1"]
+type = "image"
+
+[openai.models.gpt-4o]
+type = "text"
+
+[openai.models.gpt-4o-mini]
+type = "text"
+
+[openai.models.gpt-image-1]
+type = "image"
+
+[replicate.models.imagen-4]
+type = "image"
+
+[replicate.models.recraft-v3]
+type = "image"
+
+[replicate.models.flux-kontext-pro]
+type = "image"
+
+[replicate.models.flux-kontext-max]
+type = "image"
+
+[volces.models.doubao-seedream-3]
+type = "image"
+
+[volces.models.seedance-v1-pro]
+type = "video"
+
+[volces.models.seedance-v1-lite-t2v]
+type = "video"
+
+[volces.models.seedance-v1-lite-i2v]
+type = "video"
