@@ -9,6 +9,7 @@ ollama
 httpx
 aiohttp
 gunicorn
+opencv-python
 aiosqlite
 requests
 Pillow
