@@ -91,7 +91,7 @@ async def upload_image(file: UploadFile = File(...), max_size_mb: float = 3.0):
     print('🦄upload_image file_path', file_path)
     return {
         'file_id': f'{file_id}.{extension}',
-        'url': f'http://localhost:{DEFAULT_PORT}/api/file/{file_id}.{extension}',
+        'url': f'{os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")}/api/file/{file_id}.{extension}',
         'width': width,
         'height': height,
     }
@@ -150,7 +150,15 @@ async def get_file(file_id: str):
     file_path = os.path.join(FILES_DIR, f'{file_id}')
     print('🦄get_file file_path', file_path)
     if not os.path.exists(file_path):
-        raise HTTPException(status_code=404, detail="File not found")
+        # Log the missing file for debugging
+        print(f'🚨 File not found: {file_path}')
+        print(f'🚨 Available files in {FILES_DIR}:')
+        try:
+            for f in os.listdir(FILES_DIR):
+                print(f'   - {f}')
+        except Exception as e:
+            print(f'   Error listing files: {e}')
+        raise HTTPException(status_code=404, detail=f"File not found: {file_id}")
     return FileResponse(file_path)
 
 

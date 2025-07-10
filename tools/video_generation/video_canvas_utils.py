@@ -151,7 +151,9 @@ async def send_video_error_notification(session_id: str, error_message: str) -> 
 
 def format_video_success_message(filename: str) -> str:
     """Format success message for video generation"""
-    return f"video generated successfully ![video_id: {filename}](http://localhost:{DEFAULT_PORT}/api/file/{filename})"
+    import os
+    base_url = os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")
+    return f"video generated successfully ![video_id: {filename}]({base_url}/api/file/{filename})"
 
 
 async def process_video_result(

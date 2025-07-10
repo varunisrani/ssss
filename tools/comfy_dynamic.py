@@ -238,7 +238,8 @@ def build_tool(wf: Dict[str, Any]) -> BaseTool:
             canvas_data["data"]["elements"].append(new_element)
             canvas_data["data"]["files"][file_id] = file_data
 
-            image_url = f"http://localhost:{DEFAULT_PORT}/api/file/{filename}"
+            base_url = os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")
+            image_url = f"{base_url}/api/file/{filename}"
 
             # print('🛠️canvas_data', canvas_data)
 

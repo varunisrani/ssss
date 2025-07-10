@@ -83,4 +83,6 @@ async def generate_image_with_provider(
         session_id, canvas_id, filename, mime_type, width, height
     )
 
-    return f"image generated successfully ![image_id: {filename}](http://localhost:{DEFAULT_PORT}{image_url})"
+    import os
+    base_url = os.getenv("BASE_API_URL", f"http://localhost:{DEFAULT_PORT}")
+    return f"image generated successfully ![image_id: {filename}]({base_url}{image_url})"
