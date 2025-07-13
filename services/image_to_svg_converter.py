@@ -1017,66 +1017,190 @@ Return ONLY the complete SVG code with ALL text elements accurately positioned a
     return svg_code, svg_relative_path
 
 def process_background_extraction(image_data, session_id=None):
-    """Intelligent background extraction using GPT-4o-mini analysis + Flux Kontext Pro"""
-    logger.info("Starting intelligent background extraction with GPT-4o-mini analysis...")
+    """Extract background using GPT Image-1 edit API with automatic mask creation"""
+    logger.info("Starting background extraction using GPT Image-1 edit API...")
     
     try:
-        # Convert image data to base64 for Flux input
-        input_image_base64 = base64.b64encode(image_data).decode('utf-8')
-        input_image_data_url = f"data:image/png;base64,{input_image_base64}"
+        # Save original image to temporary file for editing
+        temp_input_path = f"temp_input_{uuid.uuid4().hex[:8]}.png"
+        with open(temp_input_path, "wb") as f:
+            f.write(image_data)
         
-        # Step 1: Use GPT-4o-mini to analyze image and generate detailed background extraction prompt
-        logger.info("🔍 Step 1: Analyzing image with GPT-4o-mini...")
-        background_prompt = analyze_background_with_gpt4o_mini(input_image_base64)
-        logger.info(f"📝 Generated intelligent prompt: {background_prompt[:200]}...")
+        # Create a mask that covers text and foreground elements
+        # For now, we'll create a transparent mask that lets the edit API determine what to remove
+        mask_path = create_background_extraction_mask(temp_input_path)
         
-        # Step 2: Use Flux Kontext Pro with the intelligent prompt
-        logger.info("🎨 Step 2: Sending to Flux Kontext Pro for background extraction...")
-        output = replicate.run(
-            "black-forest-labs/flux-kontext-pro",
-            input={
-                "prompt": background_prompt,
-                "input_image": input_image_data_url,
-                "aspect_ratio": "match_input_image",
-                "output_format": "jpg",
-                "safety_tolerance": 2,
-                "prompt_upsampling": False
-            }
-        )
+        # Direct prompt for GPT Image-1 edit to remove foreground elements
+        background_generation_prompt = "Remove all text and shaps in this plan backgorudn"
         
-        # Get the background-only image URL and download it
-        background_url = output[0] if isinstance(output, list) else output
-        response = requests.get(background_url)
-        background_base64 = base64.b64encode(response.content).decode('utf-8')
+        logger.info("Using GPT Image-1 edit API for background extraction...")
+        logger.info(f"🖼️  Input image size: {len(image_data)} bytes")
+        logger.info(f"📝 Edit prompt: {background_generation_prompt}")
+        logger.info(f"📁 Temp input path: {temp_input_path}")
+        logger.info(f"🎭 Mask path: {mask_path}")
+        
+        # Use OpenAI edit API with the image and mask
+        with open(temp_input_path, "rb") as image_file, open(mask_path, "rb") as mask_file:
+            logger.info("📤 Sending request to GPT Image-1 edit API...")
+            response = openai.images.edit(
+                image=image_file,
+                mask=mask_file,
+                prompt=background_generation_prompt,
+                model="gpt-image-1",  # GPT-Image-1 supports edit operations
+                n=1,
+                size="1024x1024"
+            )
+            logger.info("✅ GPT Image-1 edit API response received successfully")
+        
+        # Get the background-only image
+        logger.info(f"🔗 Response data length: {len(response.data)}")
+        logger.info(f"📊 Response data type: {type(response.data[0])}")
+        logger.info(f"🆔 Response data attributes: {dir(response.data[0])}")
+        
+        response_image = response.data[0]
+        background_url = response_image.url
+        background_b64 = response_image.b64_json
+        
+        logger.info(f"🌐 Generated background URL: {background_url}")
+        logger.info(f"📄 Generated background b64_json: {'Available' if background_b64 else 'None'}")
+        
+        # Handle both URL and base64 responses with explicit None checks
+        logger.info(f"🔍 Checking response data - URL: {background_url}, B64: {background_b64 is not None}")
+        
+        if background_b64 is not None and background_b64:
+            # Use base64 data directly
+            logger.info("🎯 Using base64 data from GPT Image-1 response")
+            background_base64 = background_b64
+            logger.info(f"🔢 Base64 encoded size: {len(background_base64)} characters")
+        elif background_url is not None and background_url:
+            # Download from URL
+            import urllib.request
+            temp_bg_path = f"temp_bg_{uuid.uuid4().hex[:8]}.png"
+            logger.info(f"⬇️  Downloading background image from: {background_url}")
+            logger.info(f"💾 Saving to temporary path: {temp_bg_path}")
+            urllib.request.urlretrieve(background_url, temp_bg_path)
+            logger.info(f"✅ Background image downloaded successfully")
+            
+            # Read it back to get base64
+            with open(temp_bg_path, 'rb') as f:
+                background_bytes = f.read()
+            logger.info(f"📊 Downloaded image size: {len(background_bytes)} bytes")
+            background_base64 = base64.b64encode(background_bytes).decode('utf-8')
+            logger.info(f"🔢 Base64 encoded size: {len(background_base64)} characters")
+        else:
+            logger.error(f"❌ Both URL and base64 are None or empty")
+            logger.error(f"🔍 URL value: {repr(background_url)}")
+            logger.error(f"🔍 B64 value: {repr(background_b64)}")
+            raise Exception("GPT Image-1 response contains neither URL nor base64 data")
+        
+        # Clean up temporary files
+        logger.info("🧹 Cleaning up temporary files...")
+        os.remove(temp_input_path)
+        logger.info(f"🗑️  Removed: {temp_input_path}")
+        os.remove(mask_path)
+        logger.info(f"🗑️  Removed: {mask_path}")
+        if 'temp_bg_path' in locals() and os.path.exists(temp_bg_path):
+            os.remove(temp_bg_path)
+            logger.info(f"🗑️  Removed: {temp_bg_path}")
         
         # Create session and save to unified storage
         if not session_id:
             session_id = f"bg_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+        logger.info(f"💾 Saving background to session: {session_id}")
         background_filename, background_relative_path, _ = save_image(background_base64, prefix="background", session_id=session_id)
         background_full_path = os.path.join(IMAGES_DIR, background_relative_path)
         
         # Create public URL for the background
         background_public_url = get_public_image_url(background_relative_path)
         
-        logger.info(f"✅ Intelligent background extraction completed: {background_filename}")
+        logger.info(f"✅ Background extracted and saved: {background_filename}")
+        logger.info(f"🔗 Background relative path: {background_relative_path}")
+        logger.info(f"📁 Background full path: {background_full_path}")
         logger.info(f"🌐 Background public URL: {background_public_url}")
         return background_base64, background_filename, background_full_path, background_public_url
         
     except Exception as e:
-        logger.error(f"Error in background extraction: {str(e)}")
+        logger.error(f"❌ Error in background extraction: {str(e)}")
+        logger.error(f"🔍 Error type: {type(e).__name__}")
+        import traceback
+        logger.error(f"📜 Full traceback: {traceback.format_exc()}")
+        
+        # Clean up temporary files if they exist
+        logger.info("🧹 Attempting to clean up temporary files after error...")
+        for temp_file in [temp_input_path if 'temp_input_path' in locals() else None, 
+                         mask_path if 'mask_path' in locals() else None, 
+                         temp_bg_path if 'temp_bg_path' in locals() else None]:
+            if temp_file and os.path.exists(temp_file):
+                os.remove(temp_file)
+                logger.info(f"🗑️  Cleaned up: {temp_file}")
+        
         # Fallback: return original image as background using unified storage
+        logger.warning("⚠️  GPT Image-1 edit API failed, falling back to original image")
+        logger.info(f"📊 Original image size: {len(image_data)} bytes")
         image_base64 = base64.b64encode(image_data).decode('utf-8')
+        logger.info(f"🔢 Original image base64 size: {len(image_base64)} characters")
+        
         if not session_id:
             session_id = f"bgfb_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+        logger.info(f"💾 Saving fallback background to session: {session_id}")
+        
         fallback_filename, fallback_relative_path, _ = save_image(image_base64, prefix="background_fallback", session_id=session_id)
         fallback_full_path = os.path.join(IMAGES_DIR, fallback_relative_path)
         
         # Create public URL for fallback
         fallback_public_url = get_public_image_url(fallback_relative_path)
         
-        logger.warning("Using original image as background fallback")
-        logger.info(f"Fallback background public URL: {fallback_public_url}")
+        logger.warning("🔄 Using original image as background fallback")
+        logger.info(f"📁 Fallback filename: {fallback_filename}")
+        logger.info(f"🔗 Fallback relative path: {fallback_relative_path}")
+        logger.info(f"📂 Fallback full path: {fallback_full_path}")
+        logger.info(f"🌐 Fallback background public URL: {fallback_public_url}")
         return image_base64, fallback_filename, fallback_full_path, fallback_public_url
+
+
+def create_background_extraction_mask(image_path):
+    """Create a mask for background extraction - marks text/foreground areas as transparent"""
+    from PIL import Image, ImageDraw
+    import numpy as np
+    
+    # Load the original image
+    img = Image.open(image_path).convert('RGBA')
+    width, height = img.size
+    
+    # Create a mask image (all opaque initially)
+    mask = Image.new('RGBA', (width, height), (255, 255, 255, 255))
+    
+    # For now, create a simple mask that marks center areas as transparent
+    # (where text typically appears in "COMING SOON" style images)
+    mask_array = np.array(mask)
+    
+    # Mark center regions as transparent (where text usually appears)
+    center_x, center_y = width // 2, height // 2
+    
+    # Create transparent regions for typical text areas
+    # Top text area (COMING)
+    mask_array[center_y - 150:center_y - 50, center_x - 200:center_x + 200, 3] = 0
+    
+    # Bottom text area (SOON)
+    mask_array[center_y + 50:center_y + 150, center_x - 200:center_x + 200, 3] = 0
+    
+    # Corner areas for decorative elements
+    # Top corners
+    mask_array[50:200, 50:200, 3] = 0  # Top left
+    mask_array[50:200, width-200:width-50, 3] = 0  # Top right
+    
+    # Bottom corners
+    mask_array[height-200:height-50, 50:200, 3] = 0  # Bottom left
+    mask_array[height-200:height-50, width-200:width-50, 3] = 0  # Bottom right
+    
+    # Convert back to PIL Image
+    mask_img = Image.fromarray(mask_array, 'RGBA')
+    
+    # Save mask
+    mask_path = f"temp_mask_{uuid.uuid4().hex[:8]}.png"
+    mask_img.save(mask_path)
+    
+    return mask_path
 
 def process_clean_svg(image_data):
     """Process text AND background removal and convert to clean SVG (elements only)"""

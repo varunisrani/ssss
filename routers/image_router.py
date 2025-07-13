@@ -91,7 +91,7 @@ async def upload_image(file: UploadFile = File(...), max_size_mb: float = 3.0):
     print('🦄upload_image file_path', file_path)
     return {
         'file_id': f'{file_id}.{extension}',
-        'url': f'https://ssss-2-fqku.onrender.com/api/file/{file_id}.{extension}',
+        'url': f'http://0.0.0.0:57988/api/file/{file_id}.{extension}',
         'width': width,
         'height': height,
     }
@@ -159,7 +159,14 @@ async def get_file(file_id: str):
         except Exception as e:
             print(f'   Error listing files: {e}')
         raise HTTPException(status_code=404, detail=f"File not found: {file_id}")
-    return FileResponse(file_path)
+    
+    # Create FileResponse with explicit CORS headers
+    response = FileResponse(file_path)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    return response
 
 
 @router.post("/comfyui/object_info")

@@ -83,6 +83,6 @@ async def generate_image_with_provider(
         session_id, canvas_id, filename, mime_type, width, height
     )
 
-    # Use hardcoded production URL
-    base_url = "https://ssss-2-fqku.onrender.com"
+    # Use localhost URL for development
+    base_url = "http://0.0.0.0:57988"
     return f"image generated successfully ![image_id: {filename}]({base_url}{image_url})"

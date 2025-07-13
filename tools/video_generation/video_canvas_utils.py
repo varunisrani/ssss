@@ -73,8 +73,8 @@ async def save_video_to_canvas(
 
         # Create file data
         file_id = generate_video_file_id()
-        # Use hardcoded production URL  
-        base_url = "https://ssss-2-fqku.onrender.com"
+        # Use localhost URL for development
+        base_url = "http://0.0.0.0:57988"
         file_url = f"{base_url}/api/file/{filename}"
 
         file_data: Dict[str, Any] = {
@@ -153,8 +153,8 @@ async def send_video_error_notification(session_id: str, error_message: str) -> 
 
 def format_video_success_message(filename: str) -> str:
     """Format success message for video generation"""
-    # Use hardcoded production URL
-    base_url = "https://ssss-2-fqku.onrender.com"
+    # Use localhost URL for development
+    base_url = "http://0.0.0.0:57988"
     return f"video generated successfully ![video_id: {filename}]({base_url}/api/file/{filename})"
 
 
